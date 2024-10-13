@@ -1,0 +1,31 @@
+﻿@model PortfolioProjectNight.Models.Testimonial
+
+
+@{
+    ViewBag.Title = "Createtestimonial";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Yeni Hakkında Bilgisi Girişi</h2>
+
+
+<form method="post">
+
+    <label> İsim Soyisim </label>
+    @Html.TextBoxFor(x => x.NameSurname, new { @class = "form-control" })
+    <br />
+    <label> Ünvan</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label> Hakkımda Yazısı </label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <label> Fotoğraf1 </label>
+    @Html.TextBoxFor(x => x.Photo, new { @class = "form-control" })
+    <br />
+    <label> Fotoğraf2 </label>
+    @Html.TextBoxFor(x => x.Photo2, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Hakkında Bilgisi Kaydet</button>
+
+</form>

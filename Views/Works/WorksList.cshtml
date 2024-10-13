@@ -1,0 +1,38 @@
+﻿@model List<PortfolioProjectNight.Models.Works>
+
+@{
+    ViewBag.Title = "Workslist";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Çalışma Listesi ve İşlemleri</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>Unvan</th>
+        <th>Açıklama</th>
+        <th>Fotoğraf</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.WorksID</td>
+            <td>@item.unvan</td>
+            <td>@item.description</td>
+            <td style="width: 200px; height: 200px; object-fit: cover;">
+                <img src="@item.photo" class="img-fluid w-100" width:"10"="Image">
+            </td>
+            <td><a href="/Works/DeleteWorks/@item.WorksID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Works/UpdateWorks/@item.WorksID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+
+    }
+
+
+</table>
+<a href="/Works/CreateWorks/" class="btn btn-info">Yeni Çalışma Girişi</a>

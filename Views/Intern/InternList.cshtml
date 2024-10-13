@@ -1,0 +1,39 @@
+﻿@model List<PortfolioProjectNight.Models.Intern>
+@{
+    ViewBag.Title = "InternList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Staj Hayatı Listem</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>Yıllar</th>
+        <th>Firma Adı</th>
+        <th>Stajda İşlemleri</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+
+        <tr>
+            <td>@item.InternId</td>
+            <td>@item.InternYear</td>
+            <td>@item.InternCompany</td>
+            <td>@item.InternWhatyoudid</td>
+            <td><a href="/Intern/DeleteIntern/@item.InternId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Intern/UpdateIntern/@item.InternId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+
+    }
+</table>
+
+<td><a href="/Intern/CreateIntern/" class="btn btn-success">Yeni Staj Bilgisi Girişi</a></td>
+
+
+

@@ -1,0 +1,22 @@
+﻿@model PortfolioProjectNight.Models.Intern
+
+@{
+    ViewBag.Title = "UpdateIntern";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Staj Sayfası</h2>
+
+<form method="post">
+    @Html.HiddenFor(x => x.InternId)
+    <label>Deneyim Başlığı</label>
+    @Html.TextBoxFor(x => x.InternYear, new { @class = "form-control" })
+    <br />
+    <label>Deneyim Alt Başlığı</label>
+    @Html.TextBoxFor(x => x.InternCompany, new { @class = "form-control" })
+    <br />
+    <label>Deneyim Açıklaması</label>
+    @Html.TextAreaFor(x => x.InternWhatyoudid, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success"> Staj Güncelle</button>
+</form>

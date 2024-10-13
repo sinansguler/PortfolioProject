@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<a  href="#" onclick="openPopup('@Url.Content(ViewBag.CvDownload)'); return false;">Cv İndir</a>
+
+
+<script>
+    function openPopup(url) {
+        // Yeni pencerede aç
+        window.open(url, 'popup', 'width=600,height=600,scrollbars=yes,resizable=yes');
+
+        // İndirme işlemini başlat
+        var a = document.createElement('a');
+        a.href = url; // İndirme URL'si
+        a.download = ''; // İndirme ismi (boş bırakılırsa varsayılan isim kullanılır)
+        document.body.appendChild(a);
+        a.click(); // Tıklama simülasyonu
+        document.body.removeChild(a); // Linki temizle
+    }
+</script>

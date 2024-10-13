@@ -1,0 +1,24 @@
+﻿@model PortfolioProjectNight.Models.Intern
+
+@{
+    ViewBag.Title = "CreateIntern";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Yeni Staj Bilgisi Girişi</h2>
+
+
+<form method="post">
+
+    <label> Staj Yılları </label>
+    @Html.TextBoxFor(x => x.InternYear, new { @class = "form-control" })
+    <br />
+    <label> Staj Firması</label>
+    @Html.TextBoxFor(x => x.InternCompany, new { @class = "form-control" })
+    <br />
+    <label> Stajda Çalışmalarım </label>
+    @Html.TextBoxFor(x => x.InternWhatyoudid, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Staj Bilgisi Kaydet</button>
+
+</form>

@@ -1,0 +1,46 @@
+﻿@model List<PortfolioProjectNight.Models.Testimonial>
+
+@{
+    ViewBag.Title = "TestimonialList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+
+<h2 class="mb-4">Hakkımda Referanslar</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Adı Soyadı</th>
+        <th>Unvan</th>
+        <th>Acıklama</th>
+        <th>Yetkili Fotoğraf</th>
+        <th>Yetkili Fotoğraf2</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+
+        <tr>
+            <td>@item.NameSurname</td>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td style="width: 15px; height: 50px; object-fit: cover;">
+                <img src="@item.Photo" class="img-fluid w-100" width:"10"="Image">
+            </td>
+            <td style="width: 15px; height: 50px; object-fit: cover;">
+                <img src="@item.Photo2" class="img-fluid w-100" width:"10"="Image">
+            </td>
+
+
+            <td><a href="/Testimonial/Deletetestimonial/@item.TestiMonialID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Testimonial/Updatetestimonial/@item.TestiMonialID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+<td><a href="/Testimonial/CreateTestimonial/" class="btn btn-success">Yeni Hakkımda Referans Metni Ekle</a></td>
+

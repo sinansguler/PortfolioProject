@@ -1,0 +1,34 @@
+﻿@model PortfolioProjectNight.Models.Skill
+@{
+    ViewBag.Title = "CreateSkill";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Yeni Yetenek Ekleme Sayfası</h2>
+
+<form method="post">
+
+    <label> Yetenek Başlığı</label>
+    <input type="text" name="SkillName" class="form-control" required />
+    @Html.ValidationMessageFor(model => model.Rate) <!-- Hata mesajı -->
+    <br />
+
+    <label> Yetenek Değeri </label>
+    <input type="number" name="Rate" class="form-control" min="1" max="100" />
+    @Html.ValidationMessageFor(model => model.Rate) <!-- Hata mesajı -->
+    <br />
+
+    <label> Icon</label>
+    <input type="text" name="Icon" class="form-control" />
+    <br />
+
+
+    <br />
+    <input type="checkbox" name="Status" value="true" class="form-check-input" /> Aktif <br />
+    <input type="checkbox" name="Status" value="false" class="form-check-input" /> Pasif <br />
+    <br />
+
+    <button class="btn btn-info">Yeteneği Ekle</button>
+</form>
+
+@Html.ValidationSummary(true) <!-- Genel hata mesajları -->

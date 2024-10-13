@@ -1,0 +1,86 @@
+﻿@model List<PortfolioProjectNight.Models.Skill>
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<div class="resize-me">
+    <canvas id="myChart"></canvas>
+</div>
+
+<!-- Chart.js ve Datalabels plugin yükleme -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<script>
+    window.onload = function () {
+        // Rastgele renk üreten fonksiyon
+        function randomColor() {
+            var r = Math.floor(Math.random() * 255);
+            var g = Math.floor(Math.random() * 255);
+            var b = Math.floor(Math.random() * 255);
+            return `rgba(${r}, ${g}, ${b}, 0.5)`; // 0.5 opacity
+        }
+
+        // Rastgele renkli diziler oluştur
+        var backgroundColors = [];
+        var borderColors = [];
+        var dataValues = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.Labels)); // Get data values for calculations
+        var total = dataValues.reduce((a, b) => a + b, 0); // Calculate total for percentage
+
+        for (var i = 0; i < dataValues.length; i++) {
+            var bgColor = randomColor();
+            backgroundColors.push(bgColor);
+            // Aynı rengin bordersiz hali
+            borderColors.push(bgColor.replace('0.5', '1')); // opacity'yi 1 yap
+        }
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewBag.ChartData)),
+                datasets: [{
+                    label: '# of Votes',
+                    data: dataValues,
+                    backgroundColor: backgroundColors,  // Rastgele background renkler
+                    borderColor: borderColors,          // Rastgele border renkler
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    datalabels: {
+                        color: '#000',
+                        formatter: function (value, context) {
+                            // Calculate percentage
+                            var percentage = ((value / total) * 100).toFixed(2); // Calculate percentage and format it
+                            return context.chart.data.labels[context.dataIndex] + ': ' + percentage + '%'; // Return label and percentage
+                        },
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        }
+                    }
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+    }
+</script>
+
+<style>
+    .resize-me {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+</style>

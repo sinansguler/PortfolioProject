@@ -1,0 +1,114 @@
+﻿@model PagedList.IPagedList<PortfolioProjectNight.Models.Skill>
+@using PagedList.Mvc
+
+
+
+@{
+    ViewBag.Title = "SkillList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Yetenek Listesi ve İşlemleri</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Değer</th>
+        <th>Icon</th>
+        <th>Status</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SkillId</td>
+            <td>@item.SkillName</td>
+            <td>@item.Rate</td>
+            @*<td>@item.Icon</td>*@
+            <td style="width: 15px; height: 50px; object-fit: cover;">
+                <img src="@item.Icon" class="img-fluid w-100" width:"10"="Image">
+            </td>
+
+
+            
+
+
+            @if (item.Status == false)
+            {
+                <td><a href="/skill/ChangeMessageStatusToTrue/@item.SkillId" class="btn btn-info">Aktif</a></td>
+            }
+            else
+            {
+                <td><a href="/skill/ChangeMessageStatusToFalse/@item.SkillId" class="btn btn-dark">Pasif</a></td>
+
+            }
+
+
+
+
+
+            <td><a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Skill/UpdateSkill/@item.SkillId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+
+    }
+
+
+</table>
+<a href="/Skill/CreateSkill/" class="btn btn-info">Yeni Yetenek Girişi</a>
+
+
+<div class="pagination-container">
+    <div class="page-info">
+
+    </div>
+
+    <div class="pagination">
+        @Html.PagedListPager(Model, page => Url.Action("SkillList", new { page }), new PagedListRenderOptions
+        {
+            EllipsesFormat = "...",
+            PageCountAndCurrentLocationFormat = "Sayfa {0} / {1}",
+            ContainerDivClasses = new[] { "pagination-links" }
+        })
+    </div>
+</div>
+
+<style>
+    .pagination-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .page-info {
+        border-radius: 8px; /* Köşe yuvarlama */
+        padding: 15px; /* İç boşluk */
+        font-size: 18px; /* Yazı boyutu */
+        font-weight: bold; /* Kalın yazı */
+        margin-bottom: 10px; /* Aşağıya boşluk */
+    }
+
+    .pagination {
+        display: flex; /* Flex kutu kullanarak butonları yan yana hizalar */
+        gap: 10px; /* Butonlar arasında boşluk */
+    }
+
+        .pagination a {
+            background-color: #17a2b8; /* Sayfa numarası arka plan rengi */
+            color: white; /* Yazı rengi */
+            padding: 10px 15px; /* İç boşluk */
+            border-radius: 5px; /* Köşe yuvarlama */
+            font-size: 20px; /* Sayfa numarası boyutu */
+            text-align: center; /* Metni ortala */
+            text-decoration: none; /* Alt çizgi kaldır */
+        }
+
+            .pagination a:hover {
+                background-color: #17a2b8; /* Üzerine gelindiğinde arka plan rengi */
+            }
+</style>
