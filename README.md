@@ -42,5 +42,14 @@ Proje Kapsamında Kullanılan Teknolojiler
 
 📊 Görselleştirme: Chart.Js aracılığıyla verilerin etkili bir şekilde sunulması sağlanmıştır.
 
-![Ekran görüntüsü 2024-10-13 163123](https://github.com/user-attachments/assets/9ebe2adf-3c9c-44e9-b6bf-75ac22242328)
+![Ekran görüntüsü 2024-10-13 163236](https://github.com/user-attachments/assets/18235fad-644e-4e3c-8a38-60bd4adc748b)
+![Ekran görüntüsü 2024-10-13 163249](https://github.com/user-attachments/assets/51c95fad-1c4d-4aec-ab89-8a91f400ecba)
+![Ekran görüntüsü 2024-10-13 163301](https://github.com/user-attachments/assets/5c23675c-de55-4a3a-a04b-9a5a9786a5a9)
+![Ekran görüntüsü 2024-10-13 163312](https://github.com/user-attachments/assets/43f8ffab-e296-4bb9-94f1-83a0c0b8c280)
+![Ekran görüntüsü 2024-10-13 163323](https://github.com/user-attachments/assets/f79e8781-e466-4721-8847-0f63b2fb86a3)
+![Ekran görüntüsü 2024-10-13 163042](https://github.com/user-attachments/assets/edb8a904-68ab-413f-9216-296397cb3be2)
+![Ekran görüntüsü 2024-10-13 163101](https://github.com/user-attachments/assets/a0312bf3-5e87-4948-b40e-4535994575b0)
+![Ekran görüntüsü 2024-10-13 163123](https://github.com/user-attachments/assets/e100d325-e034-4ad6-8be9-aea818a68782)
+![Ekran görüntüsü 2024-10-13 163135](https://github.com/user-attachments/assets/c1276d13-a693-4883-8b81-42202957dc4c)
+
 
